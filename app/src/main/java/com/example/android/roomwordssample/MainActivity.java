@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -73,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, NEW_WORD_ACTIVITY_REQUEST_CODE);
             }
         });
+    }
+
+    public void onClick(View view){
+        setContentView(R.layout.recyclerview_item);
+        TextView textView = findViewById(R.id.textView);
+        Word word = (Word) textView.getText();
+        mWordViewModel.delete(word);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
