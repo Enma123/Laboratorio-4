@@ -14,8 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License. -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
@@ -23,5 +24,6 @@ limitations under the License. -->
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_orange_light"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:clickable="true"/>
 </LinearLayout>

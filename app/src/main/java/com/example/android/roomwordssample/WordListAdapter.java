@@ -18,9 +18,12 @@ package com.example.android.roomwordssample;
 
 import android.content.Context;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import java.util.Collections;
@@ -28,8 +31,7 @@ import java.util.List;
 
 
 public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordViewHolder> {
-
-    class WordViewHolder extends RecyclerView.ViewHolder {
+    class WordViewHolder extends RecyclerView.ViewHolder /*implements View.OnClickListener*/{
         private final TextView wordItemView;
 
         private WordViewHolder(View itemView) {

@@ -16,9 +16,11 @@ package com.example.android.roomwordssample;
  * limitations under the License.
  */
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -26,7 +28,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
+
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
     public static final int NEW_WORD_ACTIVITY_REQUEST_CODE = 1;
 
     private WordViewModel mWordViewModel;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view){
-        setContentView(R.layout.recyclerview_item);
-        TextView textView = findViewById(R.id.textView);
-        Word word = (Word) textView.getText();
-        mWordViewModel.delete(word);
+        TextView textView = view.findViewById(R.id.textView);
+        String word = textView.getText().toString();
+        Log.d("myTag", "SELECTED_POSITION: "+word);
+        mWordViewModel.delete(new Word(word));
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
